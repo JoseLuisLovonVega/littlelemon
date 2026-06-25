@@ -78,8 +78,19 @@ WSGI_APPLICATION = 'littlelemon.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', # 'django.db.backends.sqlite3',
+        'NAME': 'littlelemon_db', # BASE_DIR / 'db.sqlite3',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", # This option ensures that MySQL behaves more like other 
+                                                                  # databases in terms of data integrity and error handling. 
+                                                                  # It enforces strict mode for transactions, which means 
+                                                                  # that invalid or missing data will cause an error rather 
+                                                                  # than being silently ignored or truncated.
+        },
     }
 }
 

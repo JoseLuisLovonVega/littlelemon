@@ -1,0 +1,12 @@
+{% extends 'base.html' %} <!-- Extend the base template for the menu item page -->
+
+{% block content %} <!-- Start the content block for the menu item page -->
+<div class="row">
+    <div class="column">
+        <h2>{{ menu_item.name }}</h2>
+        <p>{{ menu_item.description }}</p>
+        <p>Price: ${{ menu_item.price }}</p>
+    </div>
+</div>
+{% endblock %}
+    

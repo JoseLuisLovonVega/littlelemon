@@ -1,0 +1,14 @@
+{% extends 'base.html' %} <!-- Extend the base template for the menu page -->
+{% load static %} <!-- Load static files for the menu page -->
+
+{% block content %} <!-- Start the content block for the menu page -->
+<h1>Menu</h1>
+<div class="column">
+    {% for item in menu %} <!-- Loop through each item in the menu context variable passed from the view -->
+    <p>
+        <a href="{% url 'menu_item' pk=item.pk %}">{{ item.name }}</a> <!-- Create a link to the menu item detail page using the item's primary key -->
+        <span class="menu-price">${{ item.price }}</span><br>
+    </p>
+    {% endfor %}
+</div>
+{% endblock %}
